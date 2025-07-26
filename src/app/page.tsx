@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ModeToggle } from "@/components/ui/darkmodetoggle";
 
 export default function Home() {
   return (
@@ -50,6 +51,7 @@ export default function Home() {
           >
             Read our docs
           </a>
+          <ModeToggle />
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
@@ -98,7 +100,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-        <Link href="http://localhost:3000/abc">abc</Link>
+        
       </footer>
     </div>
   );
