@@ -40,7 +40,7 @@ export function PostDrawer() {
           <DialogHeader>
             <DialogTitle>Post</DialogTitle>
             <DialogDescription>
-                Type your post here. Click submit when you're done.
+                Type your post here. Click submit when youre done.
             </DialogDescription>
           </DialogHeader>
           <PostForm />
@@ -57,7 +57,7 @@ export function PostDrawer() {
         <DrawerHeader className="text-left">
           <DrawerTitle>Post</DrawerTitle>
           <DrawerDescription>
-            Type your post here. Click submit when you're done.
+            Type your post here. Click submit when youre done.
           </DrawerDescription>
         </DrawerHeader>
         <PostForm className="px-4" />
