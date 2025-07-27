@@ -49,7 +49,7 @@ export function AppSidebar() {
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel>
-                        Colton's Portfolio
+                        Coltons Portfolio
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>

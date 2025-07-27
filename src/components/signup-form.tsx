@@ -15,15 +15,34 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { useState } from "react";
+
+
 
 const formSchema = z.object({
-    username: z.string().min(1, "Username is required"),
-    password: z.string().min(6, "Password must be at least 6 characters long"),
-    confirmPassword: z.string().min(6, "Confirm Password is required"),
-    email: z.string().min(6, "Email is required")
+    username: z.string().min(1, {
+        message: "Username is required"
+    }),
+    password: z.string().min(6, {
+        message: "Password must be at least 6 characters long"
+    }),
+    confirmPassword: z.string().min(6, {
+        message: "Confirm Password is required"
+    }),
+    email: z.email().min(6, {
+        message: "Email is required"
+    })
 });
 
+type FormSchema = z.infer<typeof formSchema>;
+
 export function SignupForm() {
+    const [userValues, SetUserValues] = useState<FormSchema>({
+        username: "",
+        password: "",
+        confirmPassword: "",
+        email: ""
+    });
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -33,7 +52,15 @@ export function SignupForm() {
             email: "",
         },
     })
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        // Do something with the form values.
+        //  This will be type-safe and validated.
+        SetUserValues(values);
+        console.log(userValues)
+    }
+
     return (
+        <>
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField
@@ -45,27 +72,55 @@ export function SignupForm() {
                             <FormControl>
                                 <Input placeholder="input" {...field} />
                             </FormControl>
-                             <FormLabel>Password</FormLabel>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Password</FormLabel>
                             <FormControl>
                                 <Input placeholder="input" {...field} />
                             </FormControl>
-                             <FormLabel>Confirm Password</FormLabel>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="confirmPassword"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Confirm</FormLabel>
                             <FormControl>
                                 <Input placeholder="input" {...field} />
                             </FormControl>
-                             <FormLabel>Email</FormLabel>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
                                 <Input placeholder="input" {...field} />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
                 <Button type="submit">Submit</Button>
             </form>
         </Form>
+        <p>hi, {userValues.username} password = {userValues.password} email = {userValues.email}</p>
+        </>
     )
 }
 
-export function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-}
+
