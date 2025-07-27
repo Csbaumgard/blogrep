@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { useMediaQuery } from "@uidotdev/usehooks"
+// import { useMediaQuery } from "@uidotdev/usehooks"
 import { Button } from "@/components/ui/button";
 import {
     Drawer,
@@ -29,7 +29,8 @@ import { PostBuilder } from "./post-builder";
 
 export function PostDrawer() {
   const [open, setOpen] = React.useState(false)
-  const isDesktop = useMediaQuery("(min-width: 768px)")
+  // const isDesktop = useMediaQuery("(min-width: 768px)")
+  const isDesktop = true; // Force desktop for now, remove later.
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
