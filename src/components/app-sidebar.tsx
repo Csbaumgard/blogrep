@@ -1,4 +1,4 @@
-import { Home, Newspaper, Search, Settings, CircleQuestionMark } from "lucide-react"
+import { Home, CloudSun, Search, Settings, CircleQuestionMark, Cloud } from "lucide-react"
 import Link from "next/link"
 import {
     Sidebar,
@@ -22,13 +22,13 @@ const items = [
         icon: Home,
     },
     {
-        title: "Feed",
-        url: base_url + "feed",
-        icon: Newspaper,
+        title: "Weather",
+        url: base_url + "weather",
+        icon: CloudSun,
     },
     {
-        title: "About",
-        url: base_url + "about",
+        title: "Portfolio",
+        url: base_url + "portfolio",
         icon: CircleQuestionMark,
     },
     {

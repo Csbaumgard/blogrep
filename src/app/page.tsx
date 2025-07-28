@@ -1,23 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ModeToggle } from "@/components/ui/darkmodetoggle";
-import { PostBuilder } from "@/components/post-builder";
+import Image from "next/image"
+import HomePage from "@/components/home-page"
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/Image003.png"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <h1 className="text-4xl font-bold tracking-tight text-center sm:text-left">
-          Coltons Portfolio
-        </h1>
+    <div className="font-sans flex flex-col min-h-screen max-w-screen items-center justify-center p-8 pb-20 gap-16 sm:p-20">
+      <main className="flex flex-col gap-[32px] items-center justify-center w-full">
+        <HomePage />
       </main>
     </div>
   );
